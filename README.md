@@ -1,2 +1,4 @@
 # 3J3-MiniGolf
-HARDCORE MODE
+PLAY NOW! ⛳
+https://ialexandrem.github.io/3J3-MiniGolf/
+MINI-GOLF ° HARDCORE MODE
