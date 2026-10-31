@@ -110,6 +110,8 @@ public class Balle : MonoBehaviour
 
 
             follow.FollowOffset = Vector3.Lerp(follow.FollowOffset, targetOffset, cameraSmooth * Time.deltaTime); // L'angle du Cinemachine qui change en continu selon la direction du mouvement de la balle
+            float brouillard = Mathf.Clamp01(coups / 1000f);
+            RenderSettings.fogDensity = brouillard;
 
 
             if (lineRendererBalle.enabled)

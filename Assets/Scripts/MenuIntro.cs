@@ -30,7 +30,7 @@ public class MenuIntro : MonoBehaviour
             texteCoups.text = $"Dernier match :<br>{nbCoups} coups";
 
         }
-        else if (nbCoups > -1 && nbCoups < 2)
+        else if (nbCoups == 1)
         {
             texteCoups.text = $"Dernier match :<br>{nbCoups} coup";
         }
