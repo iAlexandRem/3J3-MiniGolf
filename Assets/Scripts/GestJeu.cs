@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
 
 public enum EtatJeu
 {
@@ -17,6 +18,9 @@ public class GestJeu : MonoBehaviour
     public ActiverRigidBody activerRigidBodyGrosMoulin;
     public TourneMoulin tourneMoulin;
 
+    public Balle compteur;
+    public static bool aGagne;
+
     void Start()
     {
         if (instance == null)
@@ -31,15 +35,20 @@ public class GestJeu : MonoBehaviour
         etat = EtatJeu.Jeu;
     }
 
-    
+
     void Update()
     {
-        
+        if (Keyboard.current != null && Keyboard.current.escapeKey.wasPressedThisFrame)
+        {
+            PlayerPrefs.SetInt("NbCoups", compteur.coups);
+            SceneManager.LoadScene("Intro");
+        }
     }
 
     public IEnumerator FinJeu()
     {
         etat = EtatJeu.Fin;
+        aGagne = true;
 
         activerRigidBodyGrosMoulin.FaireTomberMoulin();
         tourneMoulin.TournePlusVite();

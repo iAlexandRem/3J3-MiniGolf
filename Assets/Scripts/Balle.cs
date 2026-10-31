@@ -9,10 +9,12 @@ using Unity.Cinemachine;
 public class Balle : MonoBehaviour
 {
 
+    public GestJeu jeu;
+    public static bool aGagne = false;
     // [Header("État de jeu")]
     Vector3 positionBalle;
     public GameObject startPoint;
-    int coups = 0;
+    public int coups = 0;
 
     [SerializeField] bool peutJouer;
 
@@ -49,6 +51,7 @@ public class Balle : MonoBehaviour
     AudioSource audiosourceBalle;
     [SerializeField] AudioClip sonFin;
     [SerializeField] AudioClip sonErreur;
+    [SerializeField] AudioClip sonCrashTerre;
     public AudioClip nouvelleMusique;
 
     [Header("UI")]
@@ -66,6 +69,7 @@ public class Balle : MonoBehaviour
 
     void Start()
     {
+        jeu.etat = EtatJeu.Jeu;
         rigidbodyBalle = GetComponent<Rigidbody>();
         lineRendererBalle = GetComponent<LineRenderer>();
         audiosourceBalle = GetComponent<AudioSource>();
@@ -90,6 +94,7 @@ public class Balle : MonoBehaviour
         //    string positionJSON = PlayerPrefs.GetString("positionBalle"); 
         //    transform.position = JsonUtility.FromJson<Vector3>(positionJSON); // whaaat
         //}
+        GestJeu.aGagne = false;
     }
 
 
@@ -277,11 +282,13 @@ public class Balle : MonoBehaviour
 
             // Déclenchement du son
             audiosourceBalle.PlayOneShot(sonFin, 10f);
+            audiosourceBalle.PlayOneShot(sonCrashTerre, 2f);
 
             PlayerPrefs.SetInt("NbCoups", coups);
 
             //PlayerPrefs.DeleteKey("positionBalle");
 
+            GestJeu.aGagne = true;
             StartCoroutine(GestJeu.instance.FinJeu());
         }
     }

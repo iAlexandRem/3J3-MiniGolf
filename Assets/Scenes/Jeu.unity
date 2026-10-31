@@ -10288,7 +10288,7 @@ Transform:
   m_GameObject: {fileID: 918323657}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 53.07193, y: 0.06, z: 35.976}
+  m_LocalPosition: {x: 53.087, y: 0.082, z: 35.968}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -14880,6 +14880,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1313900932}
   - component: {fileID: 1313900931}
+  - component: {fileID: 1313900933}
   m_Layer: 0
   m_Name: GestJeu
   m_TagString: Untagged
@@ -14902,6 +14903,7 @@ MonoBehaviour:
   etat: 0
   activerRigidBodyGrosMoulin: {fileID: 554298855}
   tourneMoulin: {fileID: 1253507430}
+  compteur: {fileID: 1362307621}
 --- !u!4 &1313900932
 Transform:
   m_ObjectHideFlags: 0
@@ -14917,6 +14919,103 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &1313900933
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1313900930}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1317078414
 GameObject:
   m_ObjectHideFlags: 0
@@ -15422,7 +15521,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dd260477b4fd3447b207f9c15b85f5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Balle
+  jeu: {fileID: 1313900931}
   startPoint: {fileID: 27696414}
+  coups: 0
   peutJouer: 0
   drapeauVertEnHaut: {fileID: 968201957}
   angle: 0
@@ -15509,6 +15610,7 @@ MonoBehaviour:
     m_Flags: 0
   sonFin: {fileID: 8300000, guid: 008b25843b3d82e49a2accdedeb41c34, type: 3}
   sonErreur: {fileID: 8300000, guid: 5f774e1939c0c7d4fa140b3e362ef8b6, type: 3}
+  sonCrashTerre: {fileID: 8300000, guid: 0f177cff55eef4421b7f8f267f24a0b3, type: 3}
   nouvelleMusique: {fileID: 8300000, guid: 697c80317d2553a43b108c5b8d297276, type: 3}
   texteCoups: {fileID: 1257783338}
   follow: {fileID: 1619075393}
